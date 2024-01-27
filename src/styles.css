@@ -4,6 +4,10 @@
     width: 90%;
 }
 
+.mt-n1 {
+    margin-top: -1rem;
+}
+
 @media screen and (min-width: 992px) {
 
     .w-90 {

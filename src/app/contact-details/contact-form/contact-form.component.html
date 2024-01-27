@@ -1,0 +1,102 @@
+<div class="container-fluid rounded shadow m-lg-0 mt-5">
+  <div class="row d-flex justify-content-center">
+
+    <div class="col-12 mt-0">
+      <div class="row justify-content-center mt-n1">
+        <div class="col-10 rounded shadow text-center my-0 py-2">
+          <h3 class="my-0"><fa-icon [icon]="faEnvelope"></fa-icon> Contact Form</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid p-3 pt-5">
+
+      <!-- Display status of email sending, sent or error while sending -->
+      <ngb-alert *ngIf="messageStatus === 'sending'" type="warning" class="small" [dismissible]="false">
+        <fa-icon [icon]="faLightbulb"></fa-icon>&nbsp;&nbsp;
+        <span class="font-weight-bold">Your message is being sent, please wait....</span>
+      </ngb-alert>
+      <ngb-alert *ngIf="messageStatus === 'success'" type="success" class="small" (closed)="messageStatus = ''">
+        <fa-icon [icon]="faCheckCircle"></fa-icon>&nbsp;&nbsp;
+        <span class="font-weight-bold">Your message has been sent. Thank you!</span>
+      </ngb-alert>
+      <ngb-alert *ngIf="messageStatus === 'error'" type="danger" class="small" (closed)="messageStatus = ''">
+        <fa-icon [icon]="faExclamationTriangle"></fa-icon>&nbsp;&nbsp;
+        <span class="font-weight-bold">Your message was not sent, please try again later!</span>
+      </ngb-alert>
+
+      <!-- Form Inputs -->
+      <form [formGroup]="contactForm" class="form-group" (ngSubmit)="onSubmit()">
+
+        <div class="row mb-2">
+          <!-- Name from input -->
+          <div class="col-6">
+            <input type="text" id="name" class="form-control" placeholder="Name" formControlName="name">
+          </div>
+          <!-- Email form input -->
+          <div class="col-6">
+            <input type="text" id="email" class="form-control" placeholder="e-mail" formControlName="email">
+          </div>
+        </div>
+
+        <div class="row mb-2 small">
+          <!-- Name input errors -->
+          <div class="col-6">
+            <div *ngIf="name?.invalid && name?.dirty" class="text-danger form-label">
+              <div *ngIf="name?.errors?.['required']">
+                <fa-icon [icon]="faExclamationTriangle"></fa-icon>&nbsp;&nbsp;
+                <span>Name is required.</span>
+              </div>
+              <div *ngIf="name?.errors?.['minlength']">
+                <fa-icon [icon]="faExclamationTriangle"></fa-icon>&nbsp;&nbsp;
+                <span>Name must be at least 4 characters long.</span>
+              </div>
+            </div>
+          </div>
+          <!-- e-mail input errors -->
+          <div *ngIf="email?.invalid && email?.dirty" class="col-6 text-danger form-label">
+            <div *ngIf="email?.errors?.['required']">
+              <fa-icon [icon]="faExclamationTriangle"></fa-icon>&nbsp;&nbsp;
+              <span>e-mail is required.</span>
+            </div>
+            <div *ngIf="email?.invalid && !email?.errors?.['required']">
+              <fa-icon [icon]="faExclamationTriangle"></fa-icon>&nbsp;&nbsp;
+              <span>Please type a valid e-mail address.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="row mb-2 text-info">
+          <div class="col-12">
+            <textarea maxlength="250" type="text" rows="3" class="form-control" id="description"
+              placeholder="Your message" formControlName="description"></textarea>
+          </div>
+          <div class="col-12 small text-center pt-2">
+            ({{ contactForm.get('description')?.value?.length || 0 }}/250 <span>characters</span>)
+          </div>
+          <div *ngIf="description?.invalid && description?.dirty" class="col-12 text-danger small form-label">
+            <div *ngIf="description?.errors?.['required']">
+              <fa-icon [icon]="faExclamationTriangle"></fa-icon>&nbsp;&nbsp;
+              <span>Message is required.</span>
+            </div>
+            <div *ngIf="description?.errors?.['minlength']">
+              <fa-icon [icon]="faExclamationTriangle"></fa-icon>&nbsp;&nbsp;
+              <span>Message must be at least 10 characters long.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit form button -->
+        <div class="row pt-2">
+          <div class="col-12 text-center">
+            <button class="btn btn-dark" type="submit" [disabled]="!contactForm.valid">Send</button>
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+</div>
