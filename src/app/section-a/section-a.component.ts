@@ -10,7 +10,7 @@ import { Component } from '@angular/core';
 })
 export class SectionAComponent {
 
-  public cards: {
+  cards: {
     title: string,
     content: string
   }[] = [
