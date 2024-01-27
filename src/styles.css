@@ -1,13 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
 .w-90 {
-    width: 85%;
+    width: 90%;
 }
 
 @media screen and (min-width: 992px) {
 
     .w-90 {
-        width: 90%;
+        width: 95%;
     }
 
 }
