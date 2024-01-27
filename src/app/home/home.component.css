@@ -1,0 +1,11 @@
+.w-90 {
+    width: 85%;
+}
+
+@media screen and (min-width: 992px) {
+
+    .w-90 {
+        width: 90%;
+    }
+
+}
