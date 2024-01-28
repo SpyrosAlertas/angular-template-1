@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg px-lg-4 px-3 border-bottom header" (click)="clickIn()">
     <div class="container-fluid">
-        <a class="navbar-brand btn btn-link" routerLink=".">Brand Name</a>
+        <a class="navbar-brand btn btn-link" routerLink="." (click)="scroll()">Brand Name</a>
         <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
             (click)="isNavbarCollapsed = !isNavbarCollapsed">
@@ -9,16 +9,17 @@
         <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse justify-content-between" id="navbarNav">
             <ul class="navbar-nav align-items-center">
                 <li class="nav-item">
-                    <a class="btn btn-link" routerLink="." fragment="home">Home</a>
+                    <a class="btn btn-link" routerLink="." fragment="home" (click)="scroll()">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-link" routerLink="." fragment="sectionA">Section A</a>
+                    <a class="btn btn-link" routerLink="." fragment="sectionA" (click)="scroll()">Section A</a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-link" routerLink="." fragment="sectionB">Section B</a>
+                    <a class="btn btn-link" routerLink="." fragment="sectionB" (click)="scroll()">Section B</a>
                 </li>
                 <li class="nav-item">
-                    <a class="btn btn-link" routerLink="." fragment="contactDetails">Contact Details</a>
+                    <a class="btn btn-link" routerLink="." fragment="contactDetails" (click)="scroll()">Contact
+                        Details</a>
                 </li>
             </ul>
         </div>
