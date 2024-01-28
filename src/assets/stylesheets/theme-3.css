@@ -9,7 +9,8 @@ body {
 
 .header,
 .footer,
-.contact-form-title {
+.contact-form-title,
+.btn.custom-btn-primary {
     background-color: #941b0c;
     color: #ffffff;
 }
@@ -29,7 +30,8 @@ body {
 
 .brand-box,
 .contact-details-box,
-.subpages-title {
+.subpages-title,
+.btn.custom-btn-primary:hover {
     background-color: #bc3908;
     color: #ffffff;
 }
