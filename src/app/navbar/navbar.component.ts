@@ -53,7 +53,7 @@ export class NavbarComponent implements OnInit {
 
   scroll() {
     if (!this.isNavbarCollapsed) {
-      this.viewportScroller.setOffset([0, 215]);
+      this.viewportScroller.setOffset([0, 270]);
       this.isNavbarCollapsed = true;
     } else {
       this.viewportScroller.setOffset([0, 64]);
