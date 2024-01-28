@@ -33,7 +33,7 @@
                         </button>
                         <div ngbDropdownMenu aria-labelledby="themeDropdown">
                             <button *ngFor="let theme of themeOptions" ngbDropdownItem
-                                (click)="changeTheme(theme)">{{theme.name}}</button>
+                                (click)="changeTheme(theme.filename)">{{theme.name}}</button>
                         </div>
                     </div>
                 </li>

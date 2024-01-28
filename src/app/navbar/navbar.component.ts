@@ -5,8 +5,10 @@ import { RouterLink } from '@angular/router';
 import { NgbDropdownModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { ThemeModel } from './theme-model';
+import { Constants } from '../utils/constants';
 
-import { CssSelectorService } from './css-selector.service';
+import { CssSelectorService } from '../services/css-selector.service';
+import { LocalStorageService } from '../services/local-storage.service';
 
 @Component({
   selector: 'app-navbar',
@@ -18,6 +20,7 @@ import { CssSelectorService } from './css-selector.service';
 export class NavbarComponent implements OnInit {
 
   isNavbarCollapsed: boolean = true;
+
   themeOptions: ThemeModel[] = [
     { name: 'Simple B&W', filename: 'assets/stylesheets/theme-1.css' },
     { name: 'Green', filename: 'assets/stylesheets/theme-2.css' },
@@ -28,12 +31,20 @@ export class NavbarComponent implements OnInit {
 
   private isClickIn: boolean = false;
 
-  constructor(private viewportScroller: ViewportScroller, private cssSelectorService: CssSelectorService) {
+  constructor(
+    private viewportScroller: ViewportScroller,
+    private cssSelectorService: CssSelectorService,
+    private localStorageService: LocalStorageService) {
+
     this.viewportScroller.setOffset([0, 64]);
+
   }
 
   ngOnInit(): void {
-    this.changeTheme(this.themeOptions[0]);
+    let cssTheme: string | null = this.localStorageService.getItem(Constants.LOCAL_STORAGE.CSS_THEME);
+    if (cssTheme !== null) {
+      this.changeTheme(cssTheme);
+    }
   }
 
   clickIn() {
@@ -49,8 +60,9 @@ export class NavbarComponent implements OnInit {
     }
   }
 
-  changeTheme(theme: ThemeModel) {
-    this.cssSelectorService.loadCssFile(theme.filename);
+  changeTheme(cssFile: string) {
+    this.localStorageService.setItem(Constants.LOCAL_STORAGE.CSS_THEME, cssFile);
+    this.cssSelectorService.loadCssFile(cssFile);
   }
 
   @HostListener('window:resize')
