@@ -1,11 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 
+/* Import default css theme color */
+@import "assets/stylesheets/theme-1.css";
+
 .w-90 {
     width: 90%;
 }
 
 .mt-n1 {
     margin-top: -1rem;
+}
+
+.mt-n4 {
+    margin-top: -4rem;
 }
 
 @media screen and (min-width: 992px) {

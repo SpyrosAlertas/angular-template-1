@@ -1,14 +1,14 @@
-<div class="container-fluid">
+<div class="container-fluid section-a-box">
 
-    <div class="row mt-0">
+    <div class="row">
         <div class="col-12 text-center">
             <h3>Section A</h3>
         </div>
     </div>
 
     <div class="row justify-content-center text-center">
-        <div *ngFor="let card of cards" class="col-lg-4 col-md-6 col-12 p-5">
-            <div class="p-3 rounded h-100 shadow btn btn-light border">
+        <div *ngFor="let card of cards" class="col-lg-4 col-md-6 col-12 py-3 py-lg-4">
+            <div class="p-3 rounded h-100 shadow btn btn-light">
                 <h4>{{card.title}}</h4>
                 <p>{{card.content}}</p>
             </div>

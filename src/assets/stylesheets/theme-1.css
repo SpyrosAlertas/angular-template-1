@@ -1,0 +1,52 @@
+/* Page theme color #1 - here we only play with the color of the page */
+
+/* Theme #1 (default) - Lit: Black and white with yellow highlights */
+
+html,
+body {
+    background-color: white;
+}
+
+.header,
+.footer {
+    background-color: #212529;
+    color: #ffffff;
+}
+
+.header a.btn-link,
+.footer a.btn-link {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.header a.btn-link:hover,
+.footer a.btn-link:hover {
+    color: #ffbd00;
+}
+
+.brand-box,
+.contact-details-box {
+    background-color: #667174;
+    color: #ffffff;
+}
+
+.contact-form-box,
+.main-body-box {
+    background-color: #ffffff;
+}
+
+/* Navbar Toggler color settings */
+.custom-toggler.navbar-toggler {
+    border-color: #ffffff;
+}
+
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(255, 255, 255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    outline: none;
+    box-shadow: none;
+}
