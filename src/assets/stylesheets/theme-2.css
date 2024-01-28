@@ -1,16 +1,16 @@
-/* Page theme color #1 - here we only play with the color of the page */
+/* Page theme color #2 - here we only play with the color of the page */
 
-/* Theme #1 (default) - Black and White */
+/* Theme #2 - Green */
 
 html,
 body {
-    background-color: #ffffffed;
+    background-color: #ffffff;
 }
 
 .header,
 .footer,
 .contact-form-title {
-    background-color: #212529;
+    background-color: #058743;
     color: #ffffff;
 }
 
@@ -24,13 +24,13 @@ body {
 .header a.btn-link:hover,
 .footer a.btn-link:hover,
 .header button.btn-link:hover {
-    color: #ffbd00;
+    color: #000000;
 }
 
 .brand-box,
 .contact-details-box,
 .subpages-title {
-    background-color: #495057;
+    background-color: #4bbe71;
     color: #ffffff;
 }
 

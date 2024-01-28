@@ -1,6 +1,6 @@
-/* Page theme color #1 - here we only play with the color of the page */
+/* Page theme color #5 - here we only play with the color of the page */
 
-/* Theme #1 (default) - Black and White */
+/* Theme #5 - Blue */
 
 html,
 body {
@@ -10,7 +10,7 @@ body {
 .header,
 .footer,
 .contact-form-title {
-    background-color: #212529;
+    background-color: #480ca8;
     color: #ffffff;
 }
 
@@ -30,7 +30,7 @@ body {
 .brand-box,
 .contact-details-box,
 .subpages-title {
-    background-color: #495057;
+    background-color: #0466c8;
     color: #ffffff;
 }
 

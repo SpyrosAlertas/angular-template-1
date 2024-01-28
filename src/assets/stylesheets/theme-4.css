@@ -1,6 +1,6 @@
-/* Page theme color #1 - here we only play with the color of the page */
+/* Page theme color #4 - here we only play with the color of the page */
 
-/* Theme #1 (default) - Black and White */
+/* Theme #4 - Purple */
 
 html,
 body {
@@ -10,7 +10,7 @@ body {
 .header,
 .footer,
 .contact-form-title {
-    background-color: #212529;
+    background-color: #7209b7;
     color: #ffffff;
 }
 
@@ -24,13 +24,13 @@ body {
 .header a.btn-link:hover,
 .footer a.btn-link:hover,
 .header button.btn-link:hover {
-    color: #ffbd00;
+    color: #000000;
 }
 
 .brand-box,
 .contact-details-box,
 .subpages-title {
-    background-color: #495057;
+    background-color: #a020f0;
     color: #ffffff;
 }
 

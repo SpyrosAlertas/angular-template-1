@@ -22,6 +22,22 @@
                         Details</a>
                 </li>
             </ul>
+            <div class="w-100 d-lg-none d-flex justify-content-center">
+                <hr class="my-2 mx-3 w-100">
+            </div>
+            <ul class="navbar-nav align-items-center">
+                <li class="nav-item">
+                    <div ngbDropdown class="d-inline-block" display="dynamic">
+                        <button type="button" class="btn btn-link" id="themeDropdown" ngbDropdownToggle>
+                            Select Theme
+                        </button>
+                        <div ngbDropdownMenu aria-labelledby="themeDropdown">
+                            <button *ngFor="let theme of themeOptions" ngbDropdownItem
+                                (click)="changeTheme(theme)">{{theme.name}}</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>
