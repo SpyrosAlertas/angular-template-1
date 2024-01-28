@@ -1,10 +1,12 @@
-import { DOCUMENT, NgFor, ViewportScroller } from '@angular/common';
-import { Component, HostListener, Inject, OnInit } from '@angular/core';
+import { NgFor, ViewportScroller } from '@angular/common';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { NgbDropdownModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { ThemeModel } from './theme-model';
+
+import { CssSelectorService } from './css-selector.service';
 
 @Component({
   selector: 'app-navbar',
@@ -26,7 +28,7 @@ export class NavbarComponent implements OnInit {
 
   private isClickIn: boolean = false;
 
-  constructor(private viewportScroller: ViewportScroller, @Inject(DOCUMENT) private document: Document) {
+  constructor(private viewportScroller: ViewportScroller, private cssSelectorService: CssSelectorService) {
     this.viewportScroller.setOffset([0, 64]);
   }
 
@@ -48,13 +50,7 @@ export class NavbarComponent implements OnInit {
   }
 
   changeTheme(theme: ThemeModel) {
-    const head = this.document.getElementsByTagName('head')[0];
-    const style = this.document.createElement('link');
-    style.id = 'client-theme';
-    style.rel = 'stylesheet';
-    style.type = 'text/css';
-    style.href = theme.filename;
-    head.appendChild(style);
+    this.cssSelectorService.loadCssFile(theme.filename);
   }
 
   @HostListener('window:resize')
