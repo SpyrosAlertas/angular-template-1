@@ -1,6 +1,6 @@
 import { NgFor, ViewportScroller } from '@angular/common';
 import { Component, HostListener, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 import { NgbDropdownModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -34,7 +34,8 @@ export class NavbarComponent implements OnInit {
   constructor(
     private viewportScroller: ViewportScroller,
     private cssSelectorService: CssSelectorService,
-    private localStorageService: LocalStorageService) {
+    private localStorageService: LocalStorageService,
+    private route: ActivatedRoute) {
 
     this.viewportScroller.setOffset([0, 64]);
 
@@ -68,6 +69,11 @@ export class NavbarComponent implements OnInit {
   @HostListener('window:resize')
   private onResize() {
     this.isNavbarCollapsed = true;
+    let fragment = this.route.snapshot.fragment;
+    if (fragment !== null) {
+      this.viewportScroller.setOffset([0, 64]);
+      this.viewportScroller.scrollToAnchor(fragment);
+    }
   }
 
   @HostListener('document:click')
